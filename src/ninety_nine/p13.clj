@@ -1,5 +1,5 @@
 (ns ninety-nine.p13
-  (:use [ninety-nine.p09 :only [pack]]))
+  (:require [ninety-nine.p09 :refer [pack]]))
 
 ;; P13 (**) Run-length encoding of a list (direct solution).
 ;; 

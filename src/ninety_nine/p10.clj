@@ -1,5 +1,5 @@
 (ns ninety-nine.p10
-  (:use [ninety-nine.p09 :only [pack]]))
+  (:require [ninety-nine.p09 :refer [pack]]))
 
 ;; P10 (*) Run-length encoding of a list.
 ;; Use the result of problem P09 to implement the so-called run-length

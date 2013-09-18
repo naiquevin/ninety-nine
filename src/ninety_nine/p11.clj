@@ -1,5 +1,5 @@
 (ns ninety-nine.p11
-  (:use [ninety-nine.p10 :only [encode]]))
+  (:require [ninety-nine.p10 :refer [encode]]))
 
 ;; P11 (*) Modified run-length encoding.
 ;; 
