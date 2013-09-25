@@ -10,16 +10,16 @@
 (defn pack
   [items]
   (reverse ((fn [items acc]
-      (cond (empty? items)
-            acc
+              (cond (empty? items)
+                    acc
 
-            (= (first items) (first (first acc)))
-            (recur (rest items)
-                   (cons (conj (first acc) (first items))
-                         (rest acc)))
+                    (= (first items) (first (first acc)))
+                    (recur (rest items)
+                           (cons (conj (first acc) (first items))
+                                 (rest acc)))
 
-            :else
-            (recur (rest items)
-                   (cons (list (first items)) acc))))
-    items '())))
+                    :else
+                    (recur (rest items)
+                           (cons (list (first items)) acc))))
+            items '())))
 
