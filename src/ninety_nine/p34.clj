@@ -18,7 +18,7 @@
 ;; exercise you should use the most primitive method to calculate this
 ;; function (there are smarter ways that we shall discuss later).
 
-(defn phi
+(defn totient-phi
   [m]
   (if (= m 1)
     1
