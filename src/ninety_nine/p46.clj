@@ -1,0 +1,74 @@
+(ns ninety-nine.p46)
+
+;; P46 (**) Truth tables for logical expressions.
+;;
+;; Define predicates and/2, or/2, nand/2, nor/2, xor/2, impl/2 and
+;; equ/2 (for logical equivalence) which succeed or fail according to
+;; the result of their respective operations; e.g. and(A,B) will
+;; succeed, if and only if both A and B succeed. Note that A and B can
+;; be Prolog goals (not only the constants true and fail).;;
+;;
+;; A logical expression in two variables can then be written in prefix
+;; notation, as in the following example: and(or(A,B),nand(A,B)).
+;;
+;; Now, write a predicate table/3 which prints the truth table of a
+;; given logical expression in two variables.
+;;
+;; Example:
+;; * table(A,B,and(A,or(A,B))).
+;; true true true
+;; true fail true
+;; fail true fail
+;; fail fail fail
+
+(defn not
+  [a]
+  (if a false true))
+
+
+(defn and
+  [a b]
+  (if a b false))
+
+
+(defn or
+  [a b]
+  (if a true b))
+
+
+(defn nand
+  [a b]
+  (if a (not b) true))
+
+
+(defn nor
+  [a b]
+  (if a false (not b)))
+
+
+(defn xor
+  [a b]
+  (if a (not b) b))
+
+
+(defn impl
+  [a b]
+  (if a b true))
+
+
+(defn equ
+  [a b]
+  (= a b))
+
+
+(defn table
+  [f]
+  (let [truth-map (map (fn [[a b]]
+                        [a b (f a b)])
+                       [[true   true]
+                        [true  false]
+                        [false  true]
+                        [false false]])]
+    (doseq [[a b r] truth-map]
+      (println a " " b " " r))))
+
