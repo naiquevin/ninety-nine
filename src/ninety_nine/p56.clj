@@ -17,7 +17,7 @@
   (letfn [(mirror? [x y]
             (cond (nil? x) (nil? y)
                   (nil? y) (nil? x)
-                  :else (and (mirror? (btree-left x) (btree-left y))
-                             (mirror? (btree-right x) (btree-right y)))))]
+                  :else (and (mirror? (btree-left x) (btree-right y))
+                             (mirror? (btree-right x) (btree-left y)))))]
     (mirror? (btree-left tree)
              (btree-right tree))))
